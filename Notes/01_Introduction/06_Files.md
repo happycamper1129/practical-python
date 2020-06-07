@@ -220,7 +220,7 @@ Try it:
 
 ```python
 >>> import gzip
->>> with gzip.open('Data/portfolio.csv.gz') as f:
+>>> with gzip.open('Data/portfolio.csv.gz', 'rt') as f:
     for line in f:
         print(line, end='')
 
@@ -228,7 +228,10 @@ Try it:
 >>>
 ```
 
-### Commentary:  Shouldn't we be using Pandas for this?
+Note: Including the file mode of `'rt'` is critical here.  If you forget that,
+you'll get byte strings instead of normal text strings.
+
+### Commentary:  Shouldn't we being using Pandas for this?
 
 Data scientists are quick to point out that libraries like
 [Pandas](https://pandas.pydata.org) already have a function for
